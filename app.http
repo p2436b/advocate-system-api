@@ -1,1 +1,19 @@
-GET http://localhost:3001/
+### Clients ###
+
+GET http://localhost:3001/clients
+###
+POST http://localhost:3001/clients
+###
+PUT http://localhost:3001/clients
+###
+DELETE http://localhost:3001/clients
+
+
+### Advocates ###
+GET http://localhost:3001/advocates
+###
+POST http://localhost:3001/advocates
+###
+PUT http://localhost:3001/advocates
+###
+DELETE http://localhost:3001/advocates
