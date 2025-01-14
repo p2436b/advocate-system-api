@@ -1,9 +1,9 @@
 import express from 'express';
-import { Advocates } from '../../entities/Advocates';
+import { Advocate } from '../../entities/Advocate';
 import { AppDataSource } from '../../data-source';
 
 const advocateRoutes = express.Router();
-const advocateRepository = AppDataSource.getRepository(Advocates);
+const advocateRepository = AppDataSource.getRepository(Advocate);
 
 advocateRoutes
 	.route('/advocates')

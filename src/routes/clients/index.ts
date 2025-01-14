@@ -1,17 +1,18 @@
 import express from 'express';
-import { Clients } from '../../entities/Clients';
+import { Client } from '../../entities/Client';
 import { AppDataSource } from '../../data-source';
+import { ClientsFull } from '../../views/ClientsFull';
 
 const clientRoutes = express.Router();
-const clientRepository = AppDataSource.getRepository(Clients);
+const clientRepository = AppDataSource.getRepository(Client);
 
 clientRoutes
 	.route('/clients')
 	.get(async (req, res) => {
-		const clients = await clientRepository.find();
-		res.send({ clients });
+		const clients = await AppDataSource.getRepository(ClientsFull).find();
+		res.json(clients);
 	})
-	.post((req, res) => {
+	.post(async (req, res) => {
 		res.send('Got a POST request - clients');
 	})
 	.put((req, res) => {
