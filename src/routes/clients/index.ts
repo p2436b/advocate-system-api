@@ -1,11 +1,15 @@
 import express from 'express';
+import { Clients } from '../../entities/Clients';
+import { AppDataSource } from '../../data-source';
 
 const clientRoutes = express.Router();
+const clientRepository = AppDataSource.getRepository(Clients);
 
 clientRoutes
 	.route('/clients')
-	.get((req, res) => {
-		res.send('Hello World - clients');
+	.get(async (req, res) => {
+		const clients = await clientRepository.find();
+		res.send({ clients });
 	})
 	.post((req, res) => {
 		res.send('Got a POST request - clients');
