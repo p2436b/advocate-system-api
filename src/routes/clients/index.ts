@@ -1,7 +1,8 @@
-const express = require('express');
-const router = express.Router();
+import express from 'express';
 
-router
+const clientRoutes = express.Router();
+
+clientRoutes
 	.route('/clients')
 	.get((req, res) => {
 		res.send('Hello World - clients');
@@ -16,4 +17,4 @@ router
 		res.send('Got a DELETE request - clients');
 	});
 
-module.exports = router;
+export default clientRoutes;

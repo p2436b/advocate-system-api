@@ -1,0 +1,6 @@
+{
+	"watch": ["./src/**/*.ts"],
+	"ignore": ["./dist/", ".git/", "node_modules/**/node_modules"],
+	"ext": "ts",
+	"exec": "pnpm --package=typescript dlx tsc && node ./dist/app.js"
+}

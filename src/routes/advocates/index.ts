@@ -1,7 +1,7 @@
-const express = require('express');
-const router = express.Router();
+import express from 'express';
+const advocateRoutes = express.Router();
 
-router
+advocateRoutes
 	.route('/advocates')
 	.get((req, res) => {
 		res.send('Hello World - advocates');
@@ -16,4 +16,4 @@ router
 		res.send('Got a DELETE request - advocates');
 	});
 
-module.exports = router;
+export default advocateRoutes;

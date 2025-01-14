@@ -1,19 +1,19 @@
 ### Clients ###
 
-GET http://localhost:3001/clients
+GET http://localhost:3000/clients
 ###
-POST http://localhost:3001/clients
+POST http://localhost:3000/clients
 ###
-PUT http://localhost:3001/clients
+PUT http://localhost:3000/clients
 ###
-DELETE http://localhost:3001/clients
+DELETE http://localhost:3000/clients
 
 
 ### Advocates ###
-GET http://localhost:3001/advocates
+GET http://localhost:3000/advocates
 ###
-POST http://localhost:3001/advocates
+POST http://localhost:3000/advocates
 ###
-PUT http://localhost:3001/advocates
+PUT http://localhost:3000/advocates
 ###
-DELETE http://localhost:3001/advocates
+DELETE http://localhost:3000/advocates
