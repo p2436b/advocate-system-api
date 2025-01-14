@@ -7,14 +7,14 @@ import {
 	OneToMany,
 	PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Cases } from './Cases';
-import { Lookups } from './Lookups';
+import { Case } from './Case';
+import { Lookup } from './Lookup';
 
 @Index('clients_pk', ['id'], { unique: true })
 @Index('clients_national_id_unique', ['nationalId'], { unique: true })
 @Index('clients_phone_number_unique', ['phoneNumber'], { unique: true })
 @Entity('clients', { schema: 'public' })
-export class Clients {
+export class Client {
 	@PrimaryGeneratedColumn({ type: 'integer', name: 'id' })
 	id: number;
 
@@ -30,10 +30,10 @@ export class Clients {
 	@Column('character varying', { name: 'phone_number', unique: true })
 	phoneNumber: string;
 
-	@OneToMany(() => Cases, (cases) => cases.client)
-	cases: Cases[];
+	@OneToMany(() => Case, (cases) => cases.client)
+	cases: Case[];
 
-	@ManyToOne(() => Lookups, (lookups) => lookups.clients)
+	@ManyToOne(() => Lookup, (lookups) => lookups.clients)
 	@JoinColumn([{ name: 'type_id', referencedColumnName: 'id' }])
-	type: Lookups;
+	type: Lookup;
 }

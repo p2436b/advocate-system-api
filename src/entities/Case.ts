@@ -8,14 +8,14 @@ import {
 	OneToMany,
 	PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Advocates } from './Advocates';
-import { Clients } from './Clients';
-import { Lookups } from './Lookups';
-import { Documents } from './Documents';
+import { Advocate } from './Advocate';
+import { Client } from './Client';
+import { Lookup } from './Lookup';
+import { Document } from './Document';
 
 @Index('cases_pk', ['id'], { unique: true })
 @Entity('cases', { schema: 'public' })
-export class Cases {
+export class Case {
 	@PrimaryGeneratedColumn({ type: 'integer', name: 'id' })
 	id: number;
 
@@ -28,27 +28,27 @@ export class Cases {
 	@Column('integer', { name: 'advocate_id' })
 	advocateId: number;
 
-	@ManyToMany(() => Advocates, (advocates) => advocates.cases)
-	advocates: Advocates[];
+	@ManyToMany(() => Advocate, (advocates) => advocates.cases)
+	advocates: Advocate[];
 
-	@ManyToOne(() => Clients, (clients) => clients.cases, {
+	@ManyToOne(() => Client, (clients) => clients.cases, {
 		onDelete: 'RESTRICT',
 	})
 	@JoinColumn([{ name: 'client_id', referencedColumnName: 'id' }])
-	client: Clients;
+	client: Client;
 
-	@ManyToOne(() => Lookups, (lookups) => lookups.cases, {
+	@ManyToOne(() => Lookup, (lookups) => lookups.cases, {
 		onDelete: 'RESTRICT',
 	})
 	@JoinColumn([{ name: 'court_id', referencedColumnName: 'id' }])
-	court: Lookups;
+	court: Lookup;
 
-	@ManyToOne(() => Lookups, (lookups) => lookups.cases2, {
+	@ManyToOne(() => Lookup, (lookups) => lookups.cases2, {
 		onDelete: 'RESTRICT',
 	})
 	@JoinColumn([{ name: 'type_id', referencedColumnName: 'id' }])
-	type: Lookups;
+	type: Lookup;
 
-	@OneToMany(() => Documents, (documents) => documents.case)
-	documents: Documents[];
+	@OneToMany(() => Document, (documents) => documents.case)
+	documents: Document[];
 }
