@@ -1,10 +1,11 @@
 import { DataSource } from 'typeorm';
-import { Clients } from './entities/Clients';
-import { Lookups } from './entities/Lookups';
-import { Advocates } from './entities/Advocates';
-import { Documents } from './entities/Documents';
-import { Cases } from './entities/Cases';
+import { Client } from './entities/Client';
+import { Lookup } from './entities/Lookup';
+import { Advocate } from './entities/Advocate';
+import { Document } from './entities/Document';
+import { Case } from './entities/Case';
 import { Auth } from './entities/Auth';
+import { ClientsFull } from './views/ClientsFull';
 
 export const AppDataSource = new DataSource({
 	type: 'postgres',
@@ -14,5 +15,5 @@ export const AppDataSource = new DataSource({
 	password: 'postgres',
 	database: 'advocate_system',
 	synchronize: false,
-	entities: [Advocates, Clients, Documents, Cases, Auth, Lookups],
+	entities: [Advocate, Client, Document, Case, Auth, Lookup, ClientsFull],
 });
