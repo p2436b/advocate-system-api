@@ -1,19 +1,65 @@
 ### Clients ###
 
-GET http://localhost:3000/clients
 ###
-POST http://localhost:3000/clients
+GET http://localhost:3000/api/v1/clients
+
 ###
-PUT http://localhost:3000/clients
+GET http://localhost:3000/api/v1/clients/2
+
 ###
-DELETE http://localhost:3000/clients
+POST http://localhost:3000/api/v1/clients
+Content-Type: application/json
+
+{
+	"firstName": "Test name",
+	"lastName": "test lastname",
+	"nationalId": "8456874564",
+	"phoneNumber": "5874564564",
+	"type":1010001
+}
+
+###
+PUT http://localhost:3000/api/v1/clients/2
+Content-Type: application/json
+
+{
+  "firstName": "Birol",
+  "lastName": "Başpınar",
+  "nationalId": "1234567890148",
+  "phoneNumber": "53300033330"
+}
 
 
-### Advocates ###
-GET http://localhost:3000/advocates
 ###
-POST http://localhost:3000/advocates
+DELETE http://localhost:3000/api/v1/clients/18
+
+
+######################## Advocates ########################
+
 ###
-PUT http://localhost:3000/advocates
+GET http://localhost:3000/api/v1/advocates
+
 ###
-DELETE http://localhost:3000/advocates
+POST http://localhost:3000/api/v1/advocates
+Content-Type: application/json
+
+{
+	"firstName": "name",
+	"lastName": "last name",
+	"barId": "478789059",
+	"phoneNumber": "50100878701245"
+}
+
+###
+PUT http://localhost:3000/api/v1/advocates/9
+Content-Type: application/json
+
+{
+	"firstName": "nameeeeeee",
+	"lastName": "last name",
+	"barId": "478789059",
+	"phoneNumber": "50100878701245"
+}
+
+###
+DELETE http://localhost:3000/api/v1/advocates/9
