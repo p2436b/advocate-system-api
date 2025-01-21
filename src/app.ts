@@ -1,11 +1,11 @@
 import 'reflect-metadata';
-import express from 'express';
-import clientRoutes from './routes/clients';
-import advocateRoutes from './routes/advocates';
+import express, { Express } from 'express';
+import clientRoutes from './routes/clients/v1';
+import advocateRoutes from './routes/advocates/v1';
 import { AppDataSource } from './data-source';
 
-const app = express();
-
+const app: Express = express();
+app.use(express.json());
 app.use(clientRoutes);
 app.use(advocateRoutes);
 
