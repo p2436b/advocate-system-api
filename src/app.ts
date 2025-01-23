@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import express, { Express } from 'express';
-import clientRoutes from './routes/clients/v1';
-import advocateRoutes from './routes/advocates/v1';
+import clientRoutes from './routes/v1/clients';
+import advocateRoutes from './routes/v1/advocates';
 import { AppDataSource } from './data-source';
 
 const app: Express = express();
@@ -11,12 +11,12 @@ app.use(advocateRoutes);
 
 app.listen(3000, async () => {
 	try {
-		console.log('Initializing database connection...');
+		console.log('[Server]', 'Initializing database connection...');
 		await AppDataSource.initialize();
-		console.log('Database connection initialized.');
+		console.log('[Server]', 'Database connection initialized.');
 	} catch (error) {
 		console.error('Could not initialize database connection!', error);
 	}
 
-	console.log('Server is running on http://localhost:3000');
+	console.log('[Server]', 'Server is running on http://localhost:3000');
 });
